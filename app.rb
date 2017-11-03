@@ -7,8 +7,10 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    text_from_user = params[:user_text]
 
+    @analyzed_text = TextAnalyzer.new(params[:user_text])
+    @letter = @analyzed_text.most_used_letter[0]
+    @word = @analyzed_text.most_used_letter[1]
     erb :results
   end
 end
