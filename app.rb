@@ -10,7 +10,7 @@ class App < Sinatra::Base
 
     @analyzed_text = TextAnalyzer.new(params[:user_text])
     @letter = @analyzed_text.most_used_letter[0]
-    @word = @analyzed_text.most_used_letter[1]
+    @times = @analyzed_text.most_used_letter[1]
     erb :results
   end
 end
